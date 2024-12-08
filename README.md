@@ -1,3 +1,9 @@
+## Binary Build Command
+go mod vendor
+make
+## Container image Build Command
+sudo podman build --build-arg TAG=v1.5.1-flannel2 --build-arg GOLANG_VERSION=1.21 -t cni-flannel-wyou:v1.5.1 -f Dockerfile
+
 ## Overview
 This plugin is designed to work in conjunction with [flannel](https://github.com/coreos/flannel), a network fabric for containers.
 When flannel daemon is started, it outputs a `/run/flannel/subnet.env` file that looks like this:

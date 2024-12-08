@@ -10,7 +10,8 @@ RUN set -x \
 COPY ./scripts/semver-parse.sh /semver-parse.sh
 RUN chmod +x /semver-parse.sh
 RUN curl -sL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s v1.43.0
-RUN git clone -b $(/semver-parse.sh ${TAG} all) --depth=1 https://github.com/flannel-io/cni-plugin ${GOPATH}/src/github.com/flannel-io/cni-plugin
+#RUN git clone -b $(/semver-parse.sh ${TAG} all) --depth=1 https://github.com/flannel-io/cni-plugin ${GOPATH}/src/github.com/flannel-io/cni-plugin
+RUN git clone -b ${TAG} --depth=1 https://github.com/flannel-io/cni-plugin ${GOPATH}/src/github.com/flannel-io/cni-plugin
 WORKDIR ${GOPATH}/src/github.com/flannel-io/cni-plugin
 
 
